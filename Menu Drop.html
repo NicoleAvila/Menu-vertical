@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Menu Dropdown - Linha de Código</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <!--A partir do head foi colocado o js (pode ser colocado tbm no body ao final)
+        o js vai fazer com que o submenu tenho uma espécie de animação ao passar o mouse-->
+    <script type="text/javascript">
+        startList = function ()
+        {
+            if (document.all && document.getElementById)
+            {
+                navRoot = document.getElementById("menuDropDown");
+                for (i = 0; i < navRoot.childNodes.length; i++)
+                {
+                    node = navRoot.childNodes[i];
+                    if (node.nodeName == "LI")
+                    {
+                        node.onmouseover = function ()
+                        {
+                            this.className += " over";
+                        }
+                        node.onmouseout = function ()
+                        {
+                            this.className = this.className.replace(" over", "");
+                        }
+                    }
+                }
+            }
+        }
+    window.onload=startList;
+    </script>
+</head>
+<body>
+    <!--A tag ul é uma lista, assim como li. O css e Js que irão modificar o design para aparentar um menu, quando aplica o Css, ele vai 
+        sumir já essas bolinhas, e vai deixar mais bonitinho, com cor no título e tals-->
+    <ul id="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li>
+            <a href="#">O que Fazemos?</a>
+            <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Hospedagem</a></li>
+                <li><a href="#">SEO</a></li>
+                <li><a href="#">Sistemas</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Contato</a></li>
+    </ul>
+</body>
+</html>
